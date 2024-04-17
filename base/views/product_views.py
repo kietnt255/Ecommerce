@@ -2,7 +2,7 @@
 from django.core import paginator
 from django.shortcuts import render
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
+#from django.contrib.postgres.search import SearchQuery, SearchRank, SearchVector
 from rest_framework import status
 
 # Rest Framework Import
@@ -17,33 +17,6 @@ from base.products import products
 from base.models import *
 from base.serializers import ProductSerializer
 
-# Get all the products with query
-
-
-@api_view(['GET'])
-def getProducts(request):
-    query = request.query_params.get('keyword')
-    if query == None:
-        query = ''
-
-    products = Product.objects.filter(name__icontains=query).order_by('-_id')
-
-    page = request.query_params.get('page')
-    paginator = Paginator(products, 8)
-
-    try:
-        products = paginator.page(page)
-    except PageNotAnInteger:
-        products = paginator.page(1)
-    except EmptyPage:
-        products = paginator.page(paginator.num_pages)
-
-    if page == None:
-        page = 1
-    page = int(page)
-
-    serializer = ProductSerializer(products, many=True)
-    return Response({'products': serializer.data, 'page': page, 'pages': paginator.num_pages})
 
 # Top Products
 
@@ -164,3 +137,65 @@ def createProductReview(request, pk):
         product.save()
 
         return Response('Review Added')
+
+
+# Get all the products with query
+# Search function with updated django's ORM (Object-Relational Mapper)
+
+
+@api_view(['GET'])
+def getProducts(request):
+    query = request.query_params.get('keyword')
+    if query == None:
+        query = ''
+
+    products = Product.objects.filter(name__icontains=query).order_by('-_id')
+
+    page = request.query_params.get('page')
+    paginator = Paginator(products, 8)
+
+    try:
+        products = paginator.page(page)
+    except PageNotAnInteger:
+        products = paginator.page(1)
+    except EmptyPage:
+        products = paginator.page(paginator.num_pages)
+
+    if page == None:
+        page = 1
+    page = int(page)
+
+    serializer = ProductSerializer(products, many=True)
+    return Response({'products': serializer.data, 'page': page, 'pages': paginator.num_pages})
+
+# Try full text search
+# @api_view(['GET'])
+# def getProducts(request):
+#     query = request.query_params.get('keyword')
+#     if query is None:
+#         query = ''
+
+#     vector = SearchVector('name')  # Define which fields to search against
+#     search_query = SearchQuery(query)
+
+#     products = Product.objects.annotate(
+#         search=vector,
+#         rank=SearchRank(vector, search_query)
+#     ).filter(search=search_query).order_by('-rank', '-_id')
+
+#     page = request.query_params.get('page')
+#     paginator = Paginator(products, 8)
+
+#     try:
+#         products = paginator.page(page)
+#     except PageNotAnInteger:
+#         products = paginator.page(1)
+#     except EmptyPage:
+#         products = paginator.page(paginator.num_pages)
+
+#     if page is None:
+#         page = 1
+#     page = int(page)
+
+#     serializer = ProductSerializer(products, many=True)
+#     return Response({'products': serializer.data, 'page': page, 'pages': paginator.num_pages})
