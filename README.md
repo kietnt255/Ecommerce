@@ -1,6 +1,10 @@
 # Ecommerce
 Ecommerce website for my advanced database project
 
+Demo:
+
+[![Watch the video](https://img.youtube.com/vi/mJaRnei4NIc/maxresdefault.jpg)](https://youtu.be/mJaRnei4NIc)
+
 Create an .env file and set these vars to connect to the PostgreSQL database (AWS RDS)
 
 ```
@@ -31,4 +35,6 @@ docker-compose up
 ```
 
 Add the secret credentials to your github action and try to deploy using AWS ECS
-![276](https://github.com/K-izme/Ecommerce/assets/91515708/997c383b-c43a-4801-98c9-601cf92b87c6)
+
+![277](https://github.com/K-izme/Ecommerce/assets/91515708/331f3d2b-1d13-4c62-b901-c08f354cb4c3)
+
