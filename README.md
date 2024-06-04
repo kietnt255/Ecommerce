@@ -1,7 +1,7 @@
 # Ecommerce
 Ecommerce website for my advanced database project
 
-Demo:
+Demo: https://www.youtube.com/watch?v=mJaRnei4NIc
 
 [![Watch the video](https://img.youtube.com/vi/mJaRnei4NIc/maxresdefault.jpg)](https://youtu.be/mJaRnei4NIc)
 
