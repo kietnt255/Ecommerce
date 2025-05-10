@@ -20,6 +20,9 @@ ECS_SERVICE=
 ECS_CLUSTER=
 ECS_TASK_DEFINITION=
 CONTAINER_NAME=
+
+GEMINI_API_KEY= 
+
 ```
 
 Build the docker images, tag to push images to docker repo
@@ -37,4 +40,8 @@ docker-compose up
 Add the secret credentials to your github action and try to deploy using AWS ECS
 
 ![277](https://github.com/K-izme/Ecommerce/assets/91515708/331f3d2b-1d13-4c62-b901-c08f354cb4c3)
+
+## Chatbot
+
+![alt text](media\images/image.png)
 

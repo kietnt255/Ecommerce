@@ -41,18 +41,18 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #local apps
     'base.apps.BaseConfig',
-    #3rd party apps 
+    #3rd party apps
     'rest_framework',
     'corsheaders',
 ]
 
-# Simple JWT 
+# Simple JWT
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-      
+
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     )
-   
+
 }
 
 
@@ -132,10 +132,10 @@ DATABASES = {
     'default': {
         'ENGINE': os.getenv("DB_ENGINE"),
         'NAME': os.getenv("DB_NAME"),
-        'USER': os.getenv("DB_USER"),  
-        'PASSWORD': os.getenv("DB_PASSWORD"),  
-        'HOST': os.getenv("DB_HOST"),  
-        'PORT': os.getenv("DB_PORT"),  
+        'USER': os.getenv("DB_USER"),
+        'PASSWORD': os.getenv("DB_PASSWORD"),
+        'HOST': os.getenv("DB_HOST"),
+        'PORT': os.getenv("DB_PORT"),
     }
 }
 
@@ -183,7 +183,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR ,"media")
 
 STATICFILES_DIRS = [
     BASE_DIR/'static',
-    BASE_DIR/'frontend/build/static', 
+    BASE_DIR/'frontend/build/static',
 ]
 
 
