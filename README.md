@@ -43,5 +43,5 @@ Add the secret credentials to your github action and try to deploy using AWS ECS
 
 ## Chatbot
 
-![alt text](media\images/image.png)
+![alt text](media\images\image.png)
 
