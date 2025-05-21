@@ -151,37 +151,28 @@ def getProducts(request):
     if query == None:
         query = ''
     
-    # Try keyword search first
     products = Product.objects.filter(name__icontains=query).order_by('-_id')
     
-    # If no results found and query is not empty, try semantic search
     if not products.exists() and query.strip():
-        # Initialize the model (this will be cached after first load)
         model = SentenceTransformer('all-MiniLM-L6-v2')
         
-        # Get all products and convert to list
         all_products = list(Product.objects.all())
         
-        # Create product descriptions by combining relevant fields
         product_descriptions = []
         for product in all_products:
             desc = f"{product.name} {product.description} {product.brand} {product.category}"
             product_descriptions.append(desc)
         
-        # Get embeddings for the search query and all products
         query_embedding = model.encode(query)
         product_embeddings = model.encode(product_descriptions)
         
-        # Calculate cosine similarity
         similarities = np.dot(product_embeddings, query_embedding) / (
             np.linalg.norm(product_embeddings, axis=1) * np.linalg.norm(query_embedding)
         )
         
-        # Get indices of products sorted by similarity
         similar_indices = np.argsort(similarities)[::-1]  # Reverse to get highest first
         products = [all_products[int(i)] for i in similar_indices]  # Convert numpy.int64 to Python int
         
-        # Add similarity scores to products
         for product, score in zip(products, similarities[similar_indices]):
             product.similarity_score = float(score)
             product.is_semantic_match = True  # Flag to indicate this was a semantic match
@@ -247,28 +238,22 @@ def semanticSearch(request):
     if not description:
         return Response({'error': 'Please provide a description'}, status=status.HTTP_400_BAD_REQUEST)
     
-    # Initialize the model (this will be cached after first load)
     model = SentenceTransformer('all-MiniLM-L6-v2')
-    
-    # Get all products
+
     products = Product.objects.all()
-    
-    # Create product descriptions by combining relevant fields
+
     product_descriptions = []
     for product in products:
         desc = f"{product.name} {product.description} {product.brand} {product.category}"
         product_descriptions.append(desc)
     
-    # Get embeddings for the search query and all products
     query_embedding = model.encode(description)
     product_embeddings = model.encode(product_descriptions)
     
-    # Calculate cosine similarity
     similarities = np.dot(product_embeddings, query_embedding) / (
         np.linalg.norm(product_embeddings, axis=1) * np.linalg.norm(query_embedding)
     )
     
-    # Get the index of the most similar product
     most_similar_idx = np.argmax(similarities)
     most_similar_product = products[most_similar_idx]
     
