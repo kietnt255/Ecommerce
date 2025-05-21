@@ -43,7 +43,10 @@ class ReviewSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class ProductSerializer(serializers.ModelSerializer):
-    reviews = serializers.SerializerMethodField(read_only= True)
+    reviews = serializers.SerializerMethodField(read_only=True)
+    similarity_score = serializers.FloatField(read_only=True, required=False)
+    is_semantic_match = serializers.BooleanField(read_only=True, required=False)
+    
     class Meta:
         model = Product 
         fields = '__all__'
