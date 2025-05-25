@@ -1,4 +1,8 @@
 # Ecommerce
+Update 2025:
+
+![Advanced database drawio](https://github.com/user-attachments/assets/679f8e06-1b91-417d-9f41-c1a21760ff73)
+
 Ecommerce website for my advanced database project
 
 Demo: https://www.youtube.com/watch?v=mJaRnei4NIc
