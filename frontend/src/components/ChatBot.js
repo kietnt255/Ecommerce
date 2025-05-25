@@ -92,15 +92,24 @@ const ChatBot = () => {
     setError(null);
 
     try {
+      console.log('Sending message to API:', inputMessage);
       const { data } = await axios.post('/api/chat/', {
         message: inputMessage
       });
+      console.log('Received API response:', data);
+
+      if (!data.response) {
+        console.error('No response field in API data:', data);
+        throw new Error('Invalid response format from server');
+      }
 
       setMessages(prev => [...prev, { 
         text: data.response,
         isUser: false 
       }]);
     } catch (error) {
+      console.error('Chat API error:', error);
+      console.error('Error response:', error.response?.data);
       setError(error.response?.data?.message || 'Error getting response from AI');
       setMessages(prev => [...prev, { 
         text: "I apologize, but I'm having trouble connecting right now. Please try again later.",
