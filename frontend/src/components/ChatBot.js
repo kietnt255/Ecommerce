@@ -92,7 +92,7 @@ const ChatBot = () => {
     setError(null);
 
     try {
-      const { data } = await axios.post('/api/chat', {
+      const { data } = await axios.post('/api/chat/', {
         message: inputMessage
       });
 
