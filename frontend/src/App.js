@@ -4,6 +4,7 @@ import { Container } from "react-bootstrap";
 /* COMPONENTS */
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import ChatBot from "./components/ChatBot";
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
 import CartScreen from "./screens/CartScreen";
@@ -61,6 +62,7 @@ function App() {
         </main>
       </Container>
       <Footer />
+      <ChatBot />
     </Router>
   );
 }
