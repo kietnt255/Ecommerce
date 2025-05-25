@@ -6,19 +6,10 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "8000:8000"  
-      - "5000:5000"  
+      - "8000:8000"
     volumes:
-      - .:/backend
-      - /backend/node_modules 
+      - .:/Backend
     environment:
       - PYTHONDONTWRITEBYTECODE=1
       - PYTHONUNBUFFERED=1
-    command: ./start.sh  
-    restart: unless-stopped 
-    networks:
-      - ecommerce-network
-
-networks:
-  ecommerce-network:
-    driver: bridge
+    command: python manage.py runserver 0.0.0.0:8000
