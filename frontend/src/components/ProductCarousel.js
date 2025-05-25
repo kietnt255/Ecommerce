@@ -40,7 +40,7 @@ function ProductCarousel() {
 
             <Carousel.Caption className="carousel.caption">
               <h4>
-                {product.name} (VND{product.price})
+                {product.name} (${product.price})
               </h4>
             </Carousel.Caption>
           </Link>
