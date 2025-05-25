@@ -3,6 +3,8 @@ Update 2025:
 
 ![Advanced database drawio](https://github.com/user-attachments/assets/679f8e06-1b91-417d-9f41-c1a21760ff73)
 
+Update 2024:
+
 Ecommerce website for my advanced database project
 
 Demo: https://www.youtube.com/watch?v=mJaRnei4NIc
@@ -18,12 +20,8 @@ DB_USER=
 DB_PASSWORD=
 DB_HOST=
 DB_PORT=5432
-AWS_REGION=
-ECR_REPOSITORY=
-ECS_SERVICE=
-ECS_CLUSTER=
-ECS_TASK_DEFINITION=
-CONTAINER_NAME=
+OPENROUTER_API_KEY=
+APP_URL=
 ```
 
 Build the docker images, tag to push images to docker repo
