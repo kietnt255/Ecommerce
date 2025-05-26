@@ -20,6 +20,11 @@ import UserEditScreen from "./screens/UserEditScreen";
 import ProductListScreen from "./screens/ProductListScreen";
 import ProductEditScreen from "./screens/ProductEditScreen";
 import OrderListScreen from "./screens/OrderListScreen";
+import ContactScreen from "./screens/ContactScreen";
+import AboutScreen from "./screens/AboutScreen";
+import ReturnsScreen from "./screens/ReturnsScreen";
+import PrivacyScreen from "./screens/PrivacyScreen";
+import TermsScreen from "./screens/TermsScreen";
 
 /* REACT ROUTER */
 import { HashRouter as Router, Route } from "react-router-dom";
@@ -31,7 +36,8 @@ function App() {
       <Container>
         <main className="py-3">
           <Route exact path="/" component={HomeScreen} />
-
+          <Route path="/products" component={HomeScreen} />
+          <Route path="/categories" component={HomeScreen} />
           <Route path="/login" component={LoginScreen} />
 
           <Route path="/register" component={RegisterScreen} />
@@ -59,6 +65,12 @@ function App() {
           <Route path="/admin/productlist" component={ProductListScreen} />
 
           <Route path="/admin/orderlist" component={OrderListScreen} />
+
+          <Route path="/contact" component={ContactScreen} />
+          <Route path="/about" component={AboutScreen} />
+          <Route path="/returns" component={ReturnsScreen} />
+          <Route path="/privacy" component={PrivacyScreen} />
+          <Route path="/terms" component={TermsScreen} />
         </main>
       </Container>
       <Footer />
