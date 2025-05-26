@@ -3,6 +3,10 @@ import { Row, Col, Card } from 'react-bootstrap';
 import { FaUsers, FaRocket, FaShieldAlt, FaHandshake } from 'react-icons/fa';
 import styled from 'styled-components';
 
+import kietImage from '../assets/images/kiet.png';
+import tuanImage from '../assets/images/jack.webp';
+import maxImage from '../assets/images/max.jpg';
+
 const AboutContainer = styled.div`
   max-width: 1200px;
   margin: 0 auto;
@@ -117,19 +121,19 @@ const AboutScreen = () => {
     {
       name: 'Ngo Tuan Kiet',
       position: 'CEO & Founder',
-      image: 'https://avatars.githubusercontent.com/u/91515708?v=4',
+      image: kietImage,
       description: 'With over 15 years of experience in e-commerce, John leads our company with vision and innovation.'
     },
     {
       name: 'Trinh Tran Phuong Tuan',
       position: 'Head of Operations',
-      image: 'https://anhnail.vn/wp-content/uploads/2025/01/hinh-jack-j97-meme-19.webp',
+      image: tuanImage,
       description: 'Jane ensures smooth operations and excellent customer service across all our platforms.'
     },
     {
       name: 'Max Verstappen',
       position: 'Technical Director',
-      image: 'https://i.imgur.com/6U1isEn.jpeg',
+      image: maxImage,
       description: 'Mike oversees our technical infrastructure and ensures a seamless shopping experience.'
     }
   ];
@@ -142,7 +146,7 @@ const AboutScreen = () => {
           <Col md={12}>
             <p className="lead text-center mb-4">
               Welcome to CloudKiddie, your trusted destination for quality products and exceptional shopping experience.
-              Founded in 2023, we've been committed to providing our customers with the best products and service.
+              Founded in 2024, we've been committed to providing our customers with the best products and service.
             </p>
             <p className="text-center text-muted">
               Our mission is to make online shopping simple, secure, and enjoyable for everyone.
