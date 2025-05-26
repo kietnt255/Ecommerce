@@ -117,19 +117,19 @@ const AboutScreen = () => {
     {
       name: 'Ngo Tuan Kiet',
       position: 'CEO & Founder',
-      image: 'https://via.placeholder.com/300x300',
+      image: 'https://avatars.githubusercontent.com/u/91515708?v=4',
       description: 'With over 15 years of experience in e-commerce, John leads our company with vision and innovation.'
     },
     {
       name: 'Trinh Tran Phuong Tuan',
       position: 'Head of Operations',
-      image: 'https://via.placeholder.com/300x300',
+      image: 'https://anhnail.vn/wp-content/uploads/2025/01/hinh-jack-j97-meme-19.webp',
       description: 'Jane ensures smooth operations and excellent customer service across all our platforms.'
     },
     {
       name: 'Max Verstappen',
       position: 'Technical Director',
-      image: 'https://via.placeholder.com/300x300',
+      image: 'https://i.imgur.com/6U1isEn.jpeg',
       description: 'Mike oversees our technical infrastructure and ensures a seamless shopping experience.'
     }
   ];
