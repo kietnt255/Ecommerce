@@ -3,6 +3,35 @@ main {
   min-height: 80vh;
 }
 
+/* Footer styles */
+footer {
+  margin-top: auto;
+}
+
+footer a {
+  text-decoration: none;
+}
+
+footer .form-control:focus {
+  box-shadow: none;
+  border-color: #adb5bd;
+}
+
+footer .btn-outline-light:hover {
+  background-color: #23272b;
+  border-color: #23272b;
+}
+
+footer .input-group .form-control {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+footer .input-group .btn {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
 /* Product.js */
 h3 {
   padding: 1rem 0;

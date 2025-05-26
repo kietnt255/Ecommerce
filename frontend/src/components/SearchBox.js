@@ -1,44 +1,77 @@
 import React, { useState } from "react";
-
-/* REACT BOOTSTRAP */
 import { Button, Form } from "react-bootstrap";
-
-/* REACT ROUTER DOM */
 import { useHistory } from "react-router-dom";
+import styled from "styled-components";
+import { FaSearch } from "react-icons/fa";
+
+const SearchForm = styled(Form)`
+  display: flex;
+  width: 100%;
+  
+  .form-control {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #fff;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    border-radius: 8px 0 0 8px;
+    transition: all 0.3s ease;
+
+    &::placeholder {
+      color: #adb5bd;
+    }
+
+    &:focus {
+      background-color: rgba(255, 255, 255, 0.15);
+      box-shadow: none;
+      color: #fff;
+    }
+  }
+
+  .btn {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #fff;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0 8px 8px 0;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #fff;
+    }
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+`;
 
 function SearchBox() {
-  /* STATE */
   const [keyword, setKeyword] = useState("");
+  const history = useHistory();
 
-  let history =
-    useHistory(); /* CAN'T DIRECTLY USE HISTORY AS IT'S NOT AN ACTUAL PAGE SO CAN'T DESTRUCTURE PROPS */
-
-  /* HANDLER */
   const submitHandler = (e) => {
     e.preventDefault();
-
-    // WHEN USER HITS SUBMIT, REDIRECT TO HOME PAGE TO SEE PRODUCTS AND APPEND ?keyword=...IN URL
-    if (keyword) {
+    if (keyword.trim()) {
       history.push(`/?keyword=${keyword}&page=1`);
     } else {
-      // IF WE HIT SUBMIT WITHOUT KEYWORD, WE DON'T WANT THE USER TO GET REDIRECTED IN THAT CASE RATHER STAY ON WHATEVER PAGE HE WAS
-      history.push(history.push(history.location.pathname));
+      history.push(history.location.pathname);
     }
   };
 
   return (
-    <Form onSubmit={submitHandler} className="d-flex">
+    <SearchForm onSubmit={submitHandler}>
       <Form.Control
         type="text"
         name="q"
         onChange={(e) => setKeyword(e.target.value)}
-        className="mr-sm-2 ml-sm-5"
-      ></Form.Control>
-
-      <Button type="submit" variant="outline-success" className="p-2 mx-sm-2">
-        Search
+        placeholder="Search products..."
+      />
+      <Button type="submit">
+        <FaSearch />
       </Button>
-    </Form>
+    </SearchForm>
   );
 }
 
