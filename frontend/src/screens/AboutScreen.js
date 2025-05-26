@@ -128,13 +128,13 @@ const AboutScreen = () => {
       name: 'Trinh Tran Phuong Tuan',
       position: 'Head of Operations',
       image: tuanImage,
-      description: 'Jane ensures smooth operations and excellent customer service across all our platforms.'
+      description: 'Jack ensures smooth operations and excellent customer service across all our platforms.'
     },
     {
       name: 'Max Verstappen',
       position: 'Technical Director',
       image: maxImage,
-      description: 'Mike oversees our technical infrastructure and ensures a seamless shopping experience.'
+      description: 'Max Verstappen oversees our technical infrastructure and ensures a seamless shopping experience.'
     }
   ];
 
